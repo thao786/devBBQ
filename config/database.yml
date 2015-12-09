@@ -13,6 +13,7 @@ default: &default
   username: thao786
   password: fall2010
   host: devbbq.ce5xmqtpnclj.us-west-1.rds.amazonaws.com
+  reconnect: true
 
 development:
   <<: *default

@@ -1,3 +1,12 @@
+<link class="include" rel="stylesheet" type="text/css" href="https://s3-us-west-2.amazonaws.com/user-upload786/jglot/jquery.jqplot.min.css" />
+<script class="include" type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script type="text/javascript" src="https://s3-us-west-2.amazonaws.com/user-upload786/jglot/jquery.jqplot.min.js"></script>
+<script class="include" language="javascript" type="text/javascript" src="https://s3-us-west-2.amazonaws.com/user-upload786/jglot/jquery.jqplot.min.js"></script>
+<script class="include" language="javascript" type="text/javascript" src="https://s3-us-west-2.amazonaws.com/user-upload786/jglot/plugins/jqplot.dateAxisRenderer.min.js"></script>
+
+<br><br><br>
+<div>Successfully clicked!!!</div>
+
 <br><br><br>
 
 <div id="result"></div>
@@ -5,3 +14,6 @@
 <%= form_for(@click, remote: true) do |f| %>
   <%= f.submit %>
 <% end %>
+
+<div id="chart1" style="height:300px; width:1000px;"></div>
+
