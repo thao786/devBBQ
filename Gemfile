@@ -16,6 +16,9 @@ gem 'coffee-rails', '~> 4.1.0'
 
 
 gem 'devise'
+gem 'mysql2'
+gem 'sendgrid-ruby'
+
 
 
 # Use jquery as the JavaScript library
