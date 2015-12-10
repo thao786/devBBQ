@@ -7,6 +7,21 @@ class ClicksController < ApplicationController
     @stat = stat(@month)
     @min = 10
     @max = 12
+
+    email current_user.email
+  end
+
+  def email(from_addr)
+    client = SendGrid::Client.new(api_user: 'thao786', api_key: 'fall2010')
+
+    mail = SendGrid::Mail.new do |m|
+      m.to = 'careers@devbbq.com'
+      m.from = from_addr
+      m.subject = 'Testing Email for Dev Assignment'
+      m.text = 'I am quick at typing, about 25 words per minute.'
+    end
+
+    res = client.send(mail)
   end
 
   def stat(month)

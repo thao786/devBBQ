@@ -1,9 +1,13 @@
 $(document).ready(function () {
     $('#new_click').on('ajax:success', function (e, data, status, xhr) {
-        alert('0');
-        $('#result').html(data);
+        $("#result").fadeIn();
     }).on('ajax:error', function (e, xhr, status, error) {
-        $('#result').html('Failed.');
+        $("#result").fadeOut();
+    });
+
+    $('#mybtn').click(function (e, data, status, xhr) {
+        $("#result").fadeIn();
+        $("#result").fadeOut();
     });
 
 });
