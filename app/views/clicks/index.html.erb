@@ -36,7 +36,7 @@
 
 <script>
   $(document).ready(function () {
-    plotGraph(<%= @stat %>, "Graph");
+    plotGraph(<%= @stat %>, "Click Statistic for November");
   });
 
   function getClickStat() {
@@ -47,7 +47,7 @@
       complete: function () {
       },
       success: function (data, textStatus, xhr) {
-        alert(data);
+        //alert(data);
       },
       error: function () {
         alert("Ajax error!")
