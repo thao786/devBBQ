@@ -3,11 +3,24 @@ class ClicksController < ApplicationController
 
   def index
     @click = Click.new
-    @stat = stat
+    @month = Date.today.strftime("%m")
+    @stat = stat(@month)
+    @min = 10
+    @max = 12
   end
 
-  def stat
-    query = "select DATE_FORMAT(created_at, '%d'), count(*) from clicks where month(created_at) = 11 group by date(created_at);"
+  def stat(month)
+    query =
+        "SELECT
+            DATE_FORMAT(created_at, '%d'),
+            count(*)
+        FROM
+            clicks
+        WHERE
+            month(created_at) = #{month}
+        GROUP BY
+            date(created_at);"
+
     result = ActiveRecord::Base.connection.execute(query)
     result.to_a.map { |x|
       x[1]
@@ -15,17 +28,13 @@ class ClicksController < ApplicationController
   end
 
   def show
-    render json: stat
-  end
-
-  def new
-    render plain: 4
+    render json: stat(params["id"])
   end
 
   def create
     params = {user_id: current_user.id}
     @click = Click.create(params)
-    render plain: 4
+    render json: current_user.id
   end
 
 end

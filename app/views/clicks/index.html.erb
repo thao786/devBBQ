@@ -12,13 +12,14 @@
 
   <div id="result" class="alert alert-success">Successfully clicked!!!</div>
 
-  <br><br><br>
+  <br>
 
 
 
   <%= form_for(@click, remote: true) do |f| %>
       <%= f.submit 'Click Me', :class => 'btn btn-success', id: "mybtn" %>
   <% end %>
+
   <br><br>
 
   <div class="row">
@@ -29,34 +30,20 @@
   <br>
 
   <h1 class="text-center">
-    <span id="myleft" class="glyphicon glyphicon-menu-left" aria-hidden="true"></span>
-    <span id="myright" class="glyphicon glyphicon-menu-right" aria-hidden="true"></span></h1>
+    <span id="myleft" class="glyphicon glyphicon-menu-left" aria-hidden="true" onclick="getClickStat(month - 1)"></span>
+    <span id="myright" class="glyphicon glyphicon-menu-right" aria-hidden="true" onclick="getClickStat(month + 1)"></span>
+  </h1>
+
 
 </div>
 
 <script>
+  var month = <%= @month %>;
+  var min = <%= @min %>;
+  var max = <%= @max %>;
+
   $(document).ready(function () {
-    plotGraph(<%= @stat %>, "Click Statistic for November");
+    plotGraph(<%= @stat %>, "Click Statistic for <%= Date::MONTHNAMES[@month.to_i] %>");
   });
-
-  function getClickStat() {
-    $.ajax({
-      url: "<%= click_path(0) %>",
-      type: "GET",
-      dataType: "json",
-      complete: function () {
-      },
-      success: function (data, textStatus, xhr) {
-        //alert(data);
-      },
-      error: function () {
-        alert("Ajax error!")
-      }
-    });
-  }
-
-  getClickStat();
-
-
 
 </script>
