@@ -7,13 +7,12 @@
 default: &default
   adapter: mysql2
   encoding: utf8
-  reconnect: false
+  reconnect: true
   database: devBBQ
   pool: 5
   username: thao786
   password: fall2010
   host: devbbq.ce5xmqtpnclj.us-west-1.rds.amazonaws.com
-  reconnect: true
 
 development:
   <<: *default

@@ -13,6 +13,9 @@ $(document).ready(function () {
 });
 
 function plotGraph(clicks, message) {
+    $("#myright").show();
+    $("#myleft").show();
+
     var plot3 = $.jqplot('chart', [clicks], {
         title: message,
         seriesDefaults: {renderer: $.jqplot.BarRenderer},
@@ -28,6 +31,11 @@ function plotGraph(clicks, message) {
             yaxis: {padMax: 1.3}
         }
     });
+
+    if (month == max)
+        $("#myright").hide();
+    if (month == min)
+        $("#myleft").hide();
 }
 
 
