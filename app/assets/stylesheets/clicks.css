@@ -1,0 +1,27 @@
+#chart1 {
+    height: 300px;
+    width: 1000px;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    padding: 20px
+}
+
+#mybtn {
+    padding: 7px;
+    border-radius: 5px;
+    -webkit-transition: -webkit-transform .8s ease-in-out;
+    transition: transform .8s ease-in-out;
+}
+
+#mybtn:hover {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+}
+
+#myleft:hover {
+    opacity: 0.6;
+}
+
+#myright:hover {
+    opacity: 0.6;
+}

@@ -1,19 +1,62 @@
-<link class="include" rel="stylesheet" type="text/css" href="https://s3-us-west-2.amazonaws.com/user-upload786/jglot/jquery.jqplot.min.css" />
-<script class="include" type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-<script type="text/javascript" src="https://s3-us-west-2.amazonaws.com/user-upload786/jglot/jquery.jqplot.min.js"></script>
-<script class="include" language="javascript" type="text/javascript" src="https://s3-us-west-2.amazonaws.com/user-upload786/jglot/jquery.jqplot.min.js"></script>
-<script class="include" language="javascript" type="text/javascript" src="https://s3-us-west-2.amazonaws.com/user-upload786/jglot/plugins/jqplot.dateAxisRenderer.min.js"></script>
+<div class="container">
 
-<br><br><br>
-<div>Successfully clicked!!!</div>
+  <link class="include" rel="stylesheet" type="text/css" href="https://s3-us-west-2.amazonaws.com/user-upload786/jglot/jquery.jqplot.min.css"/>
+  <script class="include" type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 
-<br><br><br>
+  <script type="text/javascript" src="https://s3-us-west-2.amazonaws.com/user-upload786/jglot/jquery.jqplot.min.js"></script>
+  <script class="include" language="javascript" type="text/javascript" src="https://s3-us-west-2.amazonaws.com/user-upload786/jglot/plugins/jqplot.barRenderer.min.js"></script>
+  <script class="include" language="javascript" type="text/javascript" src="https://s3-us-west-2.amazonaws.com/user-upload786/jglot/plugins/jqplot.pointLabels.min.js"></script>
+  <script class="include" language="javascript" type="text/javascript" src="https://s3-us-west-2.amazonaws.com/user-upload786/jglot/plugins/jqplot.categoryAxisRenderer.min.js"></script>
 
-<div id="result"></div>
+  <br><br><br>
 
-<%= form_for(@click, remote: true) do |f| %>
-  <%= f.submit %>
-<% end %>
+  <div id="result" class="alert alert-success">Successfully clicked!!!</div>
 
-<div id="chart1" style="height:300px; width:1000px;"></div>
+  <br><br><br>
 
+
+
+  <%= form_for(@click, remote: true) do |f| %>
+      <%= f.submit 'Click Me', :class => 'btn btn-success', id: "mybtn" %>
+  <% end %>
+  <br><br>
+
+  <div class="row">
+    <div id="chart" style="height:300px; width:1000px;"></div>
+  </div>
+
+
+  <br>
+
+  <h1 class="text-center">
+    <span id="myleft" class="glyphicon glyphicon-menu-left" aria-hidden="true"></span>
+    <span id="myright" class="glyphicon glyphicon-menu-right" aria-hidden="true"></span></h1>
+
+</div>
+
+<script>
+  $(document).ready(function () {
+    plotGraph(<%= @stat %>, "Graph");
+  });
+
+  function getClickStat() {
+    $.ajax({
+      url: "<%= click_path(0) %>",
+      type: "GET",
+      dataType: "json",
+      complete: function () {
+      },
+      success: function (data, textStatus, xhr) {
+        alert(data);
+      },
+      error: function () {
+        alert("Ajax error!")
+      }
+    });
+  }
+
+  getClickStat();
+
+
+
+</script>
