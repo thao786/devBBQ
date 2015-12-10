@@ -6,16 +6,14 @@ class ClicksController < ApplicationController
     @month = Date.today.strftime("%m")
     @stat = stat(@month)
     @min = 10
-    @max = 12
-
-    email current_user.email
+    @max = @month
   end
 
   def email(from_addr)
     client = SendGrid::Client.new(api_user: 'thao786', api_key: 'fall2010')
 
     mail = SendGrid::Mail.new do |m|
-      m.to = 'careers@devbbq.com'
+      m.to = 'roseskindergarten@gmail.com'
       m.from = from_addr
       m.subject = 'Testing Email for Dev Assignment'
       m.text = 'I am quick at typing, about 25 words per minute.'
@@ -49,6 +47,7 @@ class ClicksController < ApplicationController
   def create
     params = {user_id: current_user.id}
     @click = Click.create(params)
+    email current_user.email
     render json: current_user.id
   end
 
