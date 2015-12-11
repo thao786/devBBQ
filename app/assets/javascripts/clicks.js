@@ -10,6 +10,7 @@ $(document).ready(function () {
         $("#result").fadeOut();
     });
 
+    $('#wrapper').css("padding-top", '0px');
 });
 
 function plotGraph(clicks, message) {
