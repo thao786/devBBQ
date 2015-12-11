@@ -1,6 +1,4 @@
 #chart1 {
-    height: 300px;
-    width: 1000px;
     overflow-x: scroll;
     overflow-y: hidden;
     padding: 20px
