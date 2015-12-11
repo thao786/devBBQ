@@ -16,11 +16,11 @@
     transform: rotate(360deg);
 }
 
-#myleft:hover {
+#prev:hover {
     opacity: 0.6;
 }
 
-#myright:hover {
+#next:hover {
     opacity: 0.6;
 }
 
@@ -34,5 +34,8 @@
     padding: 50px;
 }
 
+a {
+    color: #1E4680 !important;
+}
 
 

@@ -14,8 +14,8 @@ $(document).ready(function () {
 });
 
 function plotGraph(clicks, message) {
-    $("#myright").show();
-    $("#myleft").show();
+    $("#prev").css('opacity', '1');
+    $("#next").css('opacity', '1');
 
     var plot3 = $.jqplot('chart', [clicks], {
         title: message,
@@ -44,9 +44,9 @@ function plotGraph(clicks, message) {
     });
 
     if (month == max)
-        $("#myright").hide();
+        $("#next").css('opacity', '0.6');
     if (month == min)
-        $("#myleft").hide();
+        $("#prev").css('opacity', '0.6');
 }
 
 

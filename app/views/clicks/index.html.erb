@@ -38,35 +38,37 @@
 <div class="container">
 
 
-
-
   <br><br>
 
   <div id="stat">
 
-  <div id="result" class="alert alert-success" style="display: none;">Sending an email to careers@devbbq.com ...</div>
+    <div id="result" class="alert alert-success" style="display: none;">Sending an email to careers@devbbq.com ...</div>
 
-  <br>
-
-
-
-  <%= form_for(@click, remote: true) do |f| %>
-      <%= f.submit 'Click Me', :class => 'btn btn-success', id: "mybtn" %>
-  <% end %>
-
-  <br><br>
-
-  <div class="row">
-    <div id="chart" style="height:300px; width:1000px;"></div>
-  </div>
+    <br>
 
 
-  <br>
 
-  <h1 class="text-center">
-    <span id="myleft" class="glyphicon glyphicon-menu-left" aria-hidden="true" onclick="getClickStat(month - 1)"></span>
-    <span id="myright" class="glyphicon glyphicon-menu-right" aria-hidden="true" onclick="getClickStat(month + 1)"></span>
-  </h1>
+    <%= form_for(@click, remote: true) do |f| %>
+        <%= f.submit 'Click Me', :class => 'btn btn-success', id: "mybtn" %>
+    <% end %>
+
+    <br><br>
+
+    <div class="row">
+      <div id="chart" style="height:300px; width:1000px;"></div>
+    </div>
+
+
+    <br>
+
+    <h1 class="text-center">
+      <a href="#">
+        <span id="prev" class="glyphicon glyphicon-menu-left" aria-hidden="true" onclick="getClickStat(month - 1)"></span>
+      </a>
+      <a href="#">
+        <span id="next" class="glyphicon glyphicon-menu-right" aria-hidden="true" onclick="getClickStat(month + 1)"></span>
+      </a>
+    </h1>
 
   </div>
 </div>
