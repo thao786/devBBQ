@@ -10,7 +10,6 @@ $(document).ready(function () {
         $("#result").fadeOut();
     });
 
-    $('#wrapper').hide();
 });
 
 function plotGraph(clicks, message) {
