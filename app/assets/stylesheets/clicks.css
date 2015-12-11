@@ -16,14 +16,6 @@
     transform: rotate(360deg);
 }
 
-#prev:hover {
-    opacity: 0.6;
-}
-
-#next:hover {
-    opacity: 0.6;
-}
-
 #devise {
     padding-top: 10px;
     color: #dff0d8 !important;
@@ -34,8 +26,15 @@
     padding: 50px;
 }
 
-a {
+.nav-graph {
     color: #1E4680 !important;
 }
+
+.nav-graph:hover {
+    opacity: 0.6;
+}
+
+
+
 
 

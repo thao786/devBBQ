@@ -1,16 +1,10 @@
 $(document).ready(function () {
     $('#new_click').on('ajax:success', function (e, data, status, xhr) {
         $("#result").fadeIn();
+        $("#result").fadeOut();
     }).on('ajax:error', function (e, xhr, status, error) {
         $("#result").fadeOut();
     });
-
-    $('#mybtn').click(function (e, data, status, xhr) {
-        $("#result").fadeIn();
-        $("#result").fadeOut();
-    });
-
-    $('#wrapper').css("padding-top", '0px');
 });
 
 function plotGraph(clicks, message) {
@@ -30,23 +24,24 @@ function plotGraph(clicks, message) {
         axes: {
             xaxis: {
                 renderer: $.jqplot.CategoryAxisRenderer,
-                tickOptions:{
-                  formatString: "%d"
+                tickOptions: {
+                    formatString: "%d"
                 }
             },
             yaxis: {
                 padMax: 1.3,
-                tickOptions:{
-                  formatString: "%d"
+                tickOptions: {
+                    formatString: "%d"
                 }
             }
         }
     });
 
     if (month == max)
-        $("#next").css('opacity', '0.6');
+        $("#next").css('color', '#617EA7');
+
     if (month == min)
-        $("#prev").css('opacity', '0.6');
+        $("#prev").css('color', '#617EA7');
 }
 
 
