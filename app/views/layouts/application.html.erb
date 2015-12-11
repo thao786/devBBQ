@@ -6,30 +6,26 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
   <link class="include" rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"/>
+  <link href="https://s3-us-west-2.amazonaws.com/user-upload786/WeBuild/assets/css/style.css" rel="stylesheet">
+
+  <style>
+
+  </style>
+
 </head>
 <body>
-<br>
 
-<div class="container text-right">
-  <% if user_signed_in? %>
-      <p class="text-muted ">
-        Logged in as <strong><%= current_user.email %></strong>.
-      </p>
-
-      <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link btn btn-warning' %>
-      <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link btn btn-success' %>
-  <% else %>
-      <%= link_to new_user_registration_path, :class => 'navbar-link btn btn-warning' do %>
-          <span class="glyphicon glyphicon-heart"></span>Sign up
-      <% end %>
-
-      <%= link_to new_user_session_path, :class => 'navbar-link btn btn-success' do %>
-          <span class="glyphicon glyphicon-share-alt"></span> Login
-      <% end %>
-  <% end %>
+<div id="wrapper">
+  <%= yield %>
 </div>
-<br>
 
-<%= yield %>
+<script>
+  $(document).ready(function () {
+    screenheight = $(window).height();
+    padding = screenheight / 5;
+    $('body').css('padding-top', padding);
+  });
+</script>
+
 </body>
 </html>

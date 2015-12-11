@@ -1,48 +1,22 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12 col-md-12 col-lg-12">
+      <h1 style="visibility: hidden;">Welcome</h1>
 
-  <!-- Bootstrap -->
-  <link class="include" rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"/>
-  <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
-  <!-- siimple style -->
-  <link href="https://s3-us-west-2.amazonaws.com/user-upload786/WeBuild/assets/css/style.css" rel="stylesheet">
+      <h2 class="subtitle">Please sign in to have fun clicking.</h2>
 
-</head>
-
-<body>
-
-<div id="wrapper">
-  <div class="container">
-    <div class="row">
-      <div class="col-sm-12 col-md-12 col-lg-12">
-        <h1 style="visibility: hidden;">Welcome</h1>
-
-        <h2 class="subtitle">Please sign in to have fun clicking.</h2>
-
-        <div id="countdown">Welcome</div>
+      <div id="countdown">Welcome</div>
 
 
-        <%= link_to new_user_registration_path, :class => 'btn btn-theme' do %>
-            Sign Up
-        <% end %>
+      <%= link_to new_user_registration_path, :class => 'btn btn-theme' do %>
+          Sign Up
+      <% end %>
 
-        <%= link_to new_user_session_path, :class => 'btn btn-theme' do %>
-            <span class="glyphicon glyphicon-share-alt"></span> Login
-        <% end %>
+      <%= link_to new_user_session_path, :class => 'btn btn-theme' do %>
+          <span class="glyphicon glyphicon-share-alt"></span> Login
+      <% end %>
 
 
-      </div>
     </div>
   </div>
 </div>
-
-<script>
-  $(document).ready(function () {
-    screenheight = $(window).height();
-    padding = screenheight/5;
-    $('body').css('padding-top', padding);
-});
-</script>
-</body>
-</html>
