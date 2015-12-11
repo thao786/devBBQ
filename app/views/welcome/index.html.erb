@@ -16,6 +16,9 @@
           <span class="glyphicon glyphicon-share-alt"></span> Login
       <% end %>
 
+      <% @users.each do |u| %>
+        <%= u.email %>  </br>
+      <% end %>
 
     </div>
   </div>
