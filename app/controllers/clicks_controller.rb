@@ -1,5 +1,4 @@
 class ClicksController < ApplicationController
-  #layout false
   before_filter :authenticate_user!
 
   def index
