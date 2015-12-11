@@ -1,3 +1,5 @@
+<% content_for :clicks do %>
+
 <link class="include" rel="stylesheet" type="text/css" href="https://s3-us-west-2.amazonaws.com/user-upload786/jglot/jquery.jqplot.min.css"/>
 <script type="text/javascript" src="https://s3-us-west-2.amazonaws.com/user-upload786/jglot/jquery.jqplot.min.js"></script>
 <script class="include" language="javascript" type="text/javascript" src="https://s3-us-west-2.amazonaws.com/user-upload786/jglot/plugins/jqplot.barRenderer.min.js"></script>
@@ -7,14 +9,14 @@
 <div class="container">
 
 
-  <div class="container text-right">
+  <div id="devise" class="container text-right">
     <% if user_signed_in? %>
-        <p class="text-muted ">
+        <p>
           Logged in as <strong><%= current_user.email %></strong>.
         </p>
 
-        <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link btn btn-warning' %>
-        <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link btn btn-success' %>
+        <%= link_to 'Edit profile', edit_user_registration_path, :class => 'btn btn-theme' %>
+        <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'btn btn-theme' %>
     <% else %>
         <%= link_to new_user_registration_path, :class => 'navbar-link btn btn-warning' do %>
             <span class="glyphicon glyphicon-heart"></span>Sign up
@@ -27,6 +29,8 @@
   </div>
 
   <br><br>
+
+  <div id="stat">
 
   <div id="result" class="alert alert-success" style="display: none;">Sending an email to careers@devbbq.com ...</div>
 
@@ -52,7 +56,7 @@
     <span id="myright" class="glyphicon glyphicon-menu-right" aria-hidden="true" onclick="getClickStat(month + 1)"></span>
   </h1>
 
-
+  </div>
 </div>
 
 <script>
@@ -65,3 +69,4 @@
   });
 
 </script>
+<% end %>

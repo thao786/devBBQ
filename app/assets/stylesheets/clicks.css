@@ -25,3 +25,16 @@
 #myright:hover {
     opacity: 0.6;
 }
+
+#devise {
+    padding-top: 10px;
+    color: #dff0d8 !important;
+}
+
+#stat {
+    background-color: #BBBBBB;
+    padding: 50px;
+}
+
+
+
