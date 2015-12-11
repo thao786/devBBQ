@@ -5,7 +5,7 @@ class ClicksController < ApplicationController
     @click = Click.new
     @month = Date.today.strftime("%m")
     @stat = stat(@month)
-    @min = 10
+    @min = 8
     @max = @month
   end
 
@@ -34,10 +34,22 @@ class ClicksController < ApplicationController
         GROUP BY
             date(created_at);"
 
-    result = ActiveRecord::Base.connection.execute(query)
-    result.to_a.map { |x|
-      x[1]
+    result = ActiveRecord::Base.connection.execute(query).to_a
+    result.map!{ |x|
+      [x[0].to_i, x[1]]
+    } # convert all keys to integer
+
+    hash = {}
+    result.each{|x|
+      hash[x[0]] = x[1]
+    } #mysql result doesn't contain dates with 0 click
+
+    statistic = [] #force stat for each day
+    (1..31).each{ |x|
+      puts x
+      hash[x] ? statistic << hash[x] : statistic << 0
     }
+    statistic
   end
 
   def show
@@ -47,7 +59,7 @@ class ClicksController < ApplicationController
   def create
     params = {user_id: current_user.id}
     @click = Click.create(params)
-    email current_user.email
+  #  email current_user.email
     render json: current_user.id
   end
 

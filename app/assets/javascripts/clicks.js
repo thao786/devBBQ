@@ -27,8 +27,18 @@ function plotGraph(clicks, message) {
                 }
             }],
         axes: {
-            xaxis: {renderer: $.jqplot.CategoryAxisRenderer},
-            yaxis: {padMax: 1.3}
+            xaxis: {
+                renderer: $.jqplot.CategoryAxisRenderer,
+                tickOptions:{
+                  formatString: "%d"
+                }
+            },
+            yaxis: {
+                padMax: 1.3,
+                tickOptions:{
+                  formatString: "%d"
+                }
+            }
         }
     });
 
