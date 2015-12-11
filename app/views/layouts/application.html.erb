@@ -19,11 +19,13 @@
   <%= yield %>
 </div>
 
+
+
 <script>
   $(document).ready(function () {
     screenheight = $(window).height();
     padding = screenheight / 5;
-    $('body').css('padding-top', padding);
+    $('#wrapper').css('padding-top', padding);
   });
 </script>
 
