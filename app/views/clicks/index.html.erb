@@ -59,17 +59,9 @@
     </div>
 
 
-    <br>
+    <div class="demo demo2"></div>
 
-    <h1 class="text-center">
-      <a class="nav-graph" href="#">
-        <span id="prev" class="glyphicon glyphicon-menu-left" aria-hidden="true" onclick="getClickStat(month - 1)"></span>
-      </a>
-      <a class="nav-graph" href="#">
-        <span id="next" class="glyphicon glyphicon-menu-right" aria-hidden="true" onclick="getClickStat(month + 1)"></span>
-      </a>
-    </h1>
-
+<p>Data available from <%= Date::MONTHNAMES[@min.to_i] %> to <%= Date::MONTHNAMES[@max.to_i] %>, 2015</p>
   </div>
 </div>
 
@@ -81,6 +73,7 @@
   $(document).ready(function () {
     plotGraph(<%= @stat %>, "Click Statistic for <%= Date::MONTHNAMES[@month.to_i] %>");
   });
+
 
 </script>
 </body>
