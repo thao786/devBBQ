@@ -47,7 +47,6 @@ class ClicksController < ApplicationController
 
     statistic = [] #force stat for each day
     (1..31).each{ |x|
-      puts x
       hash[x] ? statistic << hash[x] : statistic << 0
     }
     statistic
