@@ -22,6 +22,9 @@
         Logged in as <strong><%= current_user.email %></strong>.
       </p>
 
+      <% if current_user.email == "rabbit@wonderland.com" %>
+        <%= link_to 'Rails Admin', rails_admin_path, :class => 'btn btn-theme' %>
+      <% end %>
       <%= link_to 'Edit profile', edit_user_registration_path, :class => 'btn btn-theme' %>
       <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'btn btn-theme' %>
   <% else %>
