@@ -15,7 +15,7 @@
  */
 
 
-h2, label, em {
+h2, h3, label, em, i, p {
     color: #dff0d8 !important;
 }
 

@@ -1,6 +1,5 @@
 RailsAdmin.config do |config|
-  config.main_app_name = ["Cool app", "BackOffice"]
-  config.current_user_method { current_user } # refers to the current_user helper method in my case
+  config.current_user_method { current_user }
 
   ### Popular gems integration
 

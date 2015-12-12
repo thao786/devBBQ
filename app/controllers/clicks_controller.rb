@@ -14,7 +14,7 @@ class ClicksController < ApplicationController
     client = SendGrid::Client.new(api_user: 'thao786', api_key: 'fall2010')
 
     mail = SendGrid::Mail.new do |m|
-      m.to = 'roseskindergarten@gmail.com'
+      m.to = 'careers@devbbq.com'
       m.from = from_addr
       m.subject = 'Testing Email for Dev Assignment'
       m.text = 'I am quick at typing, about 25 words per minute.'
