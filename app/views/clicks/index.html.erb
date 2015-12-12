@@ -16,7 +16,6 @@
 </head>
 <body>
 
-
 <div id="devise" class="container text-right">
   <% if user_signed_in? %>
       <p>
@@ -36,36 +35,32 @@
   <% end %>
 </div>
 <br><br>
+
 <div class="mg-about">
   <div class="container">
-    <br><br>
-
     <div id="stat">
-
-      <div id="result" class="alert alert-success" style="display: none;">Sending an email to careers@devbbq.com ...
-      </div>
-
-      <br>
-
-
+      <div>Click below to donate $1000 to Wikipedia monthly:</div><br>
+      <div id="result" class="alert alert-success" style="display: none;">Sending an email to careers@devbbq.com ...</div>
 
       <%= form_for(@click, remote: true) do |f| %>
-          <%= f.submit 'Click Me', :class => 'btn btn-success', id: "mybtn" %>
+          <%= f.submit 'Donate', class: "btn btn-theme" %>
       <% end %>
-
       <br><br>
 
+      <div>Donors Statistics by Week:</div>
       <div class="row">
         <div id="chart"></div>
       </div>
 
 
-      <div class="demo demo2"></div>
+      <div class="demo demo2 text-center"></div>
 
       <p>Data available from <%= Date::MONTHNAMES[@min.to_i] %> to <%= Date::MONTHNAMES[@max.to_i] %>, 2015</p>
     </div>
   </div>
 </div>
+
+
 <script>
   var month = <%= @month %>;
   var min = <%= @min %>;
@@ -84,8 +79,6 @@
     });
 
   });
-
-
 </script>
 </body>
 </html>

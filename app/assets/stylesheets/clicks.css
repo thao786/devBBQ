@@ -1,29 +1,11 @@
-#mybtn {
-    padding: 7px;
-    border-radius: 5px;
-    -webkit-transition: -webkit-transform .8s ease-in-out;
-    transition: transform .8s ease-in-out;
-}
-
-#mybtn:hover {
-    -webkit-transform : rotate(360deg);
-    transform: rotate(360deg);
-}
-
 #devise {
     padding-top: 10px;
     color: #dff0d8 !important;
 }
 
-#stat1 {
-    background-color: #BBBBBB;
-    padding: 50px;
-}
-
 .mg-about {
-  padding: 70px 0;
+  padding: 20px 0;
   background-color: #16262e;
-  /* background-image: url(../images/about-bg.png); */
   background-position: center center;
   color: #fff;
 }
@@ -31,6 +13,3 @@
 #chart{
     width: 100%;
 }
-
-
-
