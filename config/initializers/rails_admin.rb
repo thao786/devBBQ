@@ -1,4 +1,7 @@
 RailsAdmin.config do |config|
+  config.main_app_name = ["Cool app", "BackOffice"]
+  # or somethig more dynamic
+  config.main_app_name = Proc.new { |controller| [ "Cool app", "BackOffice - #{controller.params[:action].try(:titleize)}" ] }
 
   ### Popular gems integration
 
@@ -9,7 +12,7 @@ RailsAdmin.config do |config|
   # config.current_user_method(&:current_user)
 
   ## == Cancan ==
-  # config.authorize_with :cancan
+   config.authorize_with :cancan
 
   ## == Pundit ==
   # config.authorize_with :pundit

@@ -19,6 +19,7 @@ gem 'devise'
 gem 'mysql2'
 gem 'sendgrid-ruby'
 gem 'rails_admin' 
+gem "cancancan"
 
 
 # Use jquery as the JavaScript library
