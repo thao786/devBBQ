@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>DevBBQ</title>
   <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
@@ -34,37 +35,37 @@
       <% end %>
   <% end %>
 </div>
-
-<div class="container">
-
-
-  <br><br>
-
-  <div id="stat">
-
-    <div id="result" class="alert alert-success" style="display: none;">Sending an email to careers@devbbq.com ...</div>
-
-    <br>
-
-
-
-    <%= form_for(@click, remote: true) do |f| %>
-        <%= f.submit 'Click Me', :class => 'btn btn-success', id: "mybtn" %>
-    <% end %>
-
+<br><br>
+<div class="mg-about">
+  <div class="container">
     <br><br>
 
-    <div class="row">
-      <div id="chart" style="height:300px; width:1000px;"></div>
+    <div id="stat">
+
+      <div id="result" class="alert alert-success" style="display: none;">Sending an email to careers@devbbq.com ...
+      </div>
+
+      <br>
+
+
+
+      <%= form_for(@click, remote: true) do |f| %>
+          <%= f.submit 'Click Me', :class => 'btn btn-success', id: "mybtn" %>
+      <% end %>
+
+      <br><br>
+
+      <div class="row">
+        <div id="chart"></div>
+      </div>
+
+
+      <div class="demo demo2"></div>
+
+      <p>Data available from <%= Date::MONTHNAMES[@min.to_i] %> to <%= Date::MONTHNAMES[@max.to_i] %>, 2015</p>
     </div>
-
-
-    <div class="demo demo2"></div>
-
-<p>Data available from <%= Date::MONTHNAMES[@min.to_i] %> to <%= Date::MONTHNAMES[@max.to_i] %>, 2015</p>
   </div>
 </div>
-
 <script>
   var month = <%= @month %>;
   var min = <%= @min %>;
@@ -72,6 +73,16 @@
 
   $(document).ready(function () {
     plotGraph(<%= @stat %>, "Click Statistic for <%= Date::MONTHNAMES[@month.to_i] %>");
+
+    $('.demo2').bootpag({
+      total: max - min + 1,
+      page: max - min + 1,
+      maxVisible: 3
+    }).on('page', function (event, num) {
+      m = min + num - 1;
+      getClickStat(m);
+    });
+
   });
 
 

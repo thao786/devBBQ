@@ -6,21 +6,22 @@ $(document).ready(function () {
         $("#result").fadeOut();
     });
 
-    $('.demo2').bootpag({
+
+    $(window).bind('resize', function() {
+        plot.replot( { resetAxes: true } );
+    });
+
+/*    $('.demo2').bootpag({
         total: max - min + 1,
         page: max - min + 1,
         maxVisible: 3
     }).on('page', function (event, num) {
-        m = min + num - 1; alert(m);
+        m = min + num - 1;
         getClickStat(m);
-    });
+    });*/
 });
-
 function plotGraph(clicks, message) {
-    $("#prev").css('opacity', '1');
-    $("#next").css('opacity', '1');
-
-    var plot3 = $.jqplot('chart', [clicks], {
+     plot = $.jqplot('chart', [clicks], {
         title: message,
         seriesDefaults: {renderer: $.jqplot.BarRenderer},
         series: [
@@ -45,14 +46,7 @@ function plotGraph(clicks, message) {
             }
         }
     });
-
-    if (month == max)
-        $("#next").css('color', '#617EA7');
-
-    if (month == min)
-        $("#prev").css('color', '#617EA7');
 }
-
 
 var monthNames = ["January", "February", "March", "April", "May", "June",
     "July", "August", "September", "October", "November", "December"];

@@ -18,3 +18,10 @@
 h2, label, em {
     color: #dff0d8 !important;
 }
+
+#wrapper {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    min-height: 0 !important;
+}
