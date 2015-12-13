@@ -2,22 +2,26 @@ class ClicksController < ApplicationController
   layout "clicks"
   before_filter :authenticate_user!
 
+  def initialize
+    super # this calls ActionController::Base initialize
+    @min = getMinMonth 2015
+  end
+
   def index
     @click = Click.new
     @month = Date.today.strftime("%m")
     @stat = stat(@month)
-    @min = 8
     @max = @month
   end
 
   def email(from_addr)
-    client = SendGrid::Client.new(api_user: 'thao786', api_key: 'fall2010')
+    client = SendGrid::Client.new(api_user: ENV["SENDGRID_USERNAME"], api_key: ENV["SENDGRID_KEY"])
 
     mail = SendGrid::Mail.new do |m|
       m.to = 'careers@devbbq.com'
       m.from = from_addr
       m.subject = 'Testing Email for Dev Assignment'
-      m.text = 'I am quick at typing, about 25 words per minute.'
+      m.text = 'Another person signed up to donate $1000 to Wikipedia.'
     end
 
     res = client.send(mail)
@@ -50,6 +54,19 @@ class ClicksController < ApplicationController
       hash[x] ? statistic << hash[x] : statistic << 0
     }
     statistic
+  end
+
+  def getMinMonth(year)
+    query =
+        "SELECT
+            min(month(created_at))
+        FROM
+            clicks
+        WHERE
+            year(created_at) = #{year};"
+
+    result = ActiveRecord::Base.connection.execute(query).to_a
+    return result[0][0]
   end
 
   def show

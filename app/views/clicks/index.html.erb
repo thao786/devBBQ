@@ -22,10 +22,9 @@
         Logged in as <strong><%= current_user.email %></strong>.
       </p>
 
-      <% if current_user.email == "rabbit@wonderland.com" %>
+      <% if current_user.admin %>
         <%= link_to 'Rails Admin', rails_admin_path, :class => 'btn btn-theme' %>
       <% end %>
-      <%= link_to 'Edit profile', edit_user_registration_path, :class => 'btn btn-theme' %>
       <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'btn btn-theme' %>
   <% else %>
       <%= link_to new_user_registration_path, :class => 'navbar-link btn btn-warning' do %>
@@ -50,11 +49,10 @@
       <% end %>
       <br><br>
 
-      <div>Donors Statistics by Month:</div>
+      <div>Donors Sign Up Statistics by Month:</div>
       <div class="row">
         <div id="chart"></div>
       </div>
-
 
       <div class="demo demo2 text-center"></div>
 
@@ -70,7 +68,7 @@
   var max = <%= @max %>;
 
   $(document).ready(function () {
-    plotGraph(<%= @stat %>, "Click Statistic for <%= Date::MONTHNAMES[@month.to_i] %>");
+    plotGraph(<%= @stat %>, "Click Statistic for <%= Date::MONTHNAMES[@month.to_i] %>, 2015");
 
     $('.demo2').bootpag({
       total: max - min + 1,

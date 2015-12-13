@@ -9,8 +9,8 @@ Rails.application.configure do
       :address        => 'smtp.sendgrid.net',
       :port           => '587',
       :authentication => :plain,
-      :user_name => 'thao786',
-      :password => 'fall2010',
+      :user_name => ENV["SENDGRID_USERNAME"],
+      :password => ENV["SENDGRID_KEY"],
       :domain => 'devBBQ.com'
   }
 
