@@ -22,6 +22,7 @@ h2, h3, label, em, i, p {
 #wrapper {
     position: absolute;
     top: 50%;
+    -webkit-transform: translateY(-50%);
     transform: translateY(-50%);
     min-height: 0 !important;
 }
