@@ -10,15 +10,6 @@ $(document).ready(function () {
     $(window).bind('resize', function() {
         plot.replot( { resetAxes: true } );
     });
-
-/*    $('.demo2').bootpag({
-        total: max - min + 1,
-        page: max - min + 1,
-        maxVisible: 3
-    }).on('page', function (event, num) {
-        m = min + num - 1;
-        getClickStat(m);
-    });*/
 });
 function plotGraph(clicks, message) {
      plot = $.jqplot('chart', [clicks], {
