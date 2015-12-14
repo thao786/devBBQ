@@ -76,7 +76,7 @@ class ClicksController < ApplicationController
   def create
     params = {user_id: current_user.id}
     @click = Click.create(params)
-  #  email current_user.email
+    email current_user.email
     render json: current_user.id
   end
 
