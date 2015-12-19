@@ -28,25 +28,11 @@ class ClicksController < ApplicationController
   end
 
   def stat(month)
-    query =
-        "SELECT
-            DATE_FORMAT(created_at, '%d'),
-            count(*)
-        FROM
-            clicks
-        WHERE
-            month(created_at) = #{month}
-        GROUP BY
-            date(created_at);"
-
-    result = ActiveRecord::Base.connection.execute(query).to_a
-    result.map!{ |x|
-      [x[0].to_i, x[1]]
-    } # convert all keys to integer
+    result = Click.where('month(created_at) = ' + month).group("DATE_FORMAT(created_at, '%d')").count
 
     hash = {}
-    result.each{|x|
-      hash[x[0]] = x[1]
+    result.each{|k,v|
+      hash[k.to_i] = v
     } #mysql result doesn't contain dates with 0 click
 
     statistic = [] #force stat for each day
@@ -57,16 +43,7 @@ class ClicksController < ApplicationController
   end
 
   def getMinMonth(year)
-    query =
-        "SELECT
-            min(month(created_at))
-        FROM
-            clicks
-        WHERE
-            year(created_at) = #{year};"
-
-    result = ActiveRecord::Base.connection.execute(query).to_a
-    return result[0][0]
+    Click.minimum('month(created_at)')
   end
 
   def show
