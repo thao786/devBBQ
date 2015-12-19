@@ -1,1 +1,44 @@
-  <%= yield %>
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Click Donation Bar Chart</title>
+  <link href="https://s3-us-west-2.amazonaws.com/user-upload786/WeBuild/assets/css/style.css" rel="stylesheet">
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+  <link class="include" rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"/>
+  <link class="include" rel="stylesheet" type="text/css" href="https://s3-us-west-2.amazonaws.com/user-upload786/jglot/jquery.jqplot.min.css"/>
+  <%= javascript_include_tag "https://s3-us-west-2.amazonaws.com/user-upload786/jglot/jquery.jqplot.min.js" %>
+  <%= javascript_include_tag "https://s3-us-west-2.amazonaws.com/user-upload786/jglot/plugins/jqplot.barRenderer.min.js" %>
+  <%= javascript_include_tag "https://s3-us-west-2.amazonaws.com/user-upload786/jglot/plugins/jqplot.pointLabels.min.js" %>
+  <%= javascript_include_tag "https://s3-us-west-2.amazonaws.com/user-upload786/jglot/plugins/jqplot.categoryAxisRenderer.min.js" %>
+</head>
+<body>
+
+<div id="devise" class="container text-right">
+  <% if user_signed_in? %>
+      <p>
+        Logged in as <strong><%= current_user.email %></strong>.
+      </p>
+
+      <% if current_user.admin %>
+          <%= link_to 'Rails Admin', rails_admin_path, :class => 'btn btn-theme' %>
+      <% end %>
+      <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'btn btn-theme' %>
+  <% else %>
+      <%= link_to new_user_registration_path, :class => 'navbar-link btn btn-warning' do %>
+          <span class="glyphicon glyphicon-heart"></span>Sign up
+      <% end %>
+
+      <%= link_to new_user_session_path, :class => 'navbar-link btn btn-success' do %>
+          <span class="glyphicon glyphicon-share-alt"></span> Login
+      <% end %>
+  <% end %>
+</div>
+<br>
+
+<%= yield %>
+
+</body>
+</html>

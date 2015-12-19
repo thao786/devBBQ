@@ -42,9 +42,8 @@ function plotGraph(clicks, message) {
 var monthNames = ["January", "February", "March", "April", "May", "June",
     "July", "August", "September", "October", "November", "December"];
 
-function getClickStat(m) {
+function getClickStat(m, min, max) {
     if (m < min || m > max) return;
-    month = m;
 
     $.ajax({
         url: "/clicks/" + m,
