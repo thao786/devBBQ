@@ -9,10 +9,10 @@
   <link class="include" rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"/>
   <link href="https://s3-us-west-2.amazonaws.com/user-upload786/WeBuild/assets/css/style.css" rel="stylesheet">
   <link class="include" rel="stylesheet" type="text/css" href="https://s3-us-west-2.amazonaws.com/user-upload786/jglot/jquery.jqplot.min.css"/>
-  <%= javascript_include_tag "https://s3-us-west-2.amazonaws.com/user-upload786/jglot/jquery.jqplot.min.js"%>
-  <%= javascript_include_tag "https://s3-us-west-2.amazonaws.com/user-upload786/jglot/plugins/jqplot.barRenderer.min.js"%>
-  <%= javascript_include_tag "https://s3-us-west-2.amazonaws.com/user-upload786/jglot/plugins/jqplot.pointLabels.min.js"%>
-  <%= javascript_include_tag "https://s3-us-west-2.amazonaws.com/user-upload786/jglot/plugins/jqplot.categoryAxisRenderer.min.js"%>
+  <%= javascript_include_tag "https://s3-us-west-2.amazonaws.com/user-upload786/jglot/jquery.jqplot.min.js" %>
+  <%= javascript_include_tag "https://s3-us-west-2.amazonaws.com/user-upload786/jglot/plugins/jqplot.barRenderer.min.js" %>
+  <%= javascript_include_tag "https://s3-us-west-2.amazonaws.com/user-upload786/jglot/plugins/jqplot.pointLabels.min.js" %>
+  <%= javascript_include_tag "https://s3-us-west-2.amazonaws.com/user-upload786/jglot/plugins/jqplot.categoryAxisRenderer.min.js" %>
 </head>
 <body>
 
@@ -23,7 +23,7 @@
       </p>
 
       <% if current_user.admin %>
-        <%= link_to 'Rails Admin', rails_admin_path, :class => 'btn btn-theme' %>
+          <%= link_to 'Rails Admin', rails_admin_path, :class => 'btn btn-theme' %>
       <% end %>
       <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'btn btn-theme' %>
   <% else %>
@@ -41,8 +41,11 @@
 <div class="mg-about">
   <div class="container">
     <div id="stat">
-      <div>Click below to donate $1000 to Wikipedia monthly:</div><br>
-      <div id="result" class="alert alert-success" style="display: none;">Sending an email to careers@devbbq.com ...</div>
+      <div>Click below to donate $1000 to Wikipedia monthly:</div>
+      <br>
+
+      <div id="result" class="alert alert-success" style="display: none;">Sending an email to careers@devbbq.com ...
+      </div>
 
       <%= form_for(@click, remote: true) do |f| %>
           <%= f.submit 'Donate', class: "btn btn-theme" %>
@@ -63,11 +66,11 @@
 
 
 <script>
-  var month = <%= @month %>;
-  var min = <%= @min %>;
-  var max = <%= @max %>;
-
   $(document).ready(function () {
+    var month = <%= @month %>;
+    var min = <%= @min %>;
+    var max = <%= @max %>;
+
     plotGraph(<%= @stat %>, "Click Statistic for <%= Date::MONTHNAMES[@month.to_i] %>, 2015");
 
     $('.demo2').bootpag({
