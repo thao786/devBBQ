@@ -42,11 +42,11 @@ function plotGraph(clicks, message) {
 var monthNames = ["January", "February", "March", "April", "May", "June",
     "July", "August", "September", "October", "November", "December"];
 
-function getClickStat(m, min, max) {
-    if (m < min || m > max) return;
+function getClickStat(month, min, max) {
+    if (month < min || month > max) return;
 
     $.ajax({
-        url: "/clicks/" + m,
+        url: "/clicks/" + month,
         type: "GET",
         dataType: "json",
         data: "12",
@@ -57,7 +57,7 @@ function getClickStat(m, min, max) {
             var click_stat = JSON.parse(array);
 
             $('#chart').html('');
-            plotGraph(click_stat, "Click Statistic for " + monthNames[m - 1] + ", 2015");
+            plotGraph(click_stat, "Click Statistic for " + monthNames[month - 1] + ", 2015");
         },
         error: function () {
             $('#result').html('An Error has occurred');

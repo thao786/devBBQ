@@ -20,7 +20,7 @@ class ClicksController < ApplicationController
     mail = SendGrid::Mail.new do |m|
       m.to = 'careers@devbbq.com'
       m.from = from_addr
-      m.subject = 'Testing Email for Dev Assignment'
+      m.subject = 'Email for Dev Assignment'
       m.text = 'Another person signed up to donate $1000 to Wikipedia.'
     end
 
