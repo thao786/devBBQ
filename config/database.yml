@@ -10,9 +10,9 @@ default: &default
   reconnect: true
   database: devBBQ
   pool: 5
-  username: ENV["RDS_USERNAME"]
-  password: ENV["RDS_PASSWORD"]
-  host: ENV["RDS_HOST"]
+  username:  <%= ENV["RDS_USERNAME"] %>
+  password: <%= ENV["RDS_PASSWORD"] %>
+  host: devbbq.ce5xmqtpnclj.us-west-1.rds.amazonaws.com
 
 development:
   <<: *default
