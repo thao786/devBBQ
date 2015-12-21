@@ -10,7 +10,7 @@ class ClicksController < ApplicationController
   def index
     @click = Click.new
     @month = Date.today.strftime("%m")
-    @stat = stat(@month)
+    @stat = getClickStat(@month)
     @max = @month
   end
 
@@ -27,7 +27,7 @@ class ClicksController < ApplicationController
     res = client.send(mail)
   end
 
-  def stat(month)
+  def getClickStat(month)
     result = Click.where('month(created_at) = ' + month).group("DATE_FORMAT(created_at, '%d')").count
 
     hash = {}
@@ -47,7 +47,7 @@ class ClicksController < ApplicationController
   end
 
   def show
-    render json: stat(params["id"])
+    render json: getClickStat(params["id"])
   end
 
   def create
