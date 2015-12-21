@@ -4,7 +4,7 @@ class ClicksController < ApplicationController
 
   def initialize
     super # this calls ActionController::Base initialize
-    @min = getMinMonth 2015
+    @min = getMinMonth
   end
 
   def index
@@ -42,7 +42,7 @@ class ClicksController < ApplicationController
     statistic
   end
 
-  def getMinMonth(year)
+  def getMinMonth
     Click.minimum('month(created_at)')
   end
 
