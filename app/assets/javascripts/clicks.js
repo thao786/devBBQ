@@ -43,8 +43,6 @@ var monthNames = ["January", "February", "March", "April", "May", "June",
     "July", "August", "September", "October", "November", "December"];
 
 function getClickStat(month, min, max) {
-    if (month < min || month > max) return;
-
     $.ajax({
         url: "/clicks/" + month,
         type: "GET",

@@ -43,7 +43,7 @@ class ClicksController < ApplicationController
   end
 
   def getMinMonth
-    Click.minimum('month(created_at)')
+    Click.minimum('created_at').month
   end
 
   def show

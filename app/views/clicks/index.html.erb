@@ -34,13 +34,12 @@
     plotGraph(<%= @stat %>, "Click Statistic for <%= Date::MONTHNAMES[@month.to_i] %>, 2015");
 
     $('.demo2').bootpag({
-      total: max - min + 1,
-      page: max - min + 1,
+      total: max > min ? max - min + 1: max - min + 13,
+      page: max > min ? max - min + 1: max - min + 13, //default page
       maxVisible: 3
     }).on('page', function (event, num) {
-      m = min + num - 1;
-      month = m;
-      getClickStat(m, min, max);
+      month = num + min - 1 > 12 ? num + min - 13 : num + min - 1;
+      getClickStat(month, min, max);
     });
   });
 </script>
