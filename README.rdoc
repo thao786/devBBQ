@@ -1,7 +1,5 @@
 Click Donation App: Try at http://52.53.223.146/
 
-The App assumes all clicking happens in 2015.
-
 RailsAdmin is only available to user with email = rabbit@wonderland.com and password = fall2010
 
 Donation App doesn't require an email to sign up, but you will need a working email for password reset instruction.
