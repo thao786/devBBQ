@@ -1,4 +1,4 @@
-Click Donation App: Try at http://52.53.223.146/
+Click Donation App: Try at http://54.67.36.157/
 
 RailsAdmin is only available to user with email = rabbit@wonderland.com and password = fall2010
 
